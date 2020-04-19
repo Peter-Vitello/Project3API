@@ -1,0 +1,56 @@
+h1{
+    font-family: 'Kanit', sans-serif;
+    text-shadow: 2px 2px #ff0000;
+}
+body {
+    background-color:  #301934;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+	background: #301929;
+	font-family: tahoma, verdana, sans serif;
+}
+
+canvas {
+	margin-left: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+	background: #fafafa;
+
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+#controls{
+  margin-left: 1rem;
+}
+
+#volumeLabel{
+  margin-left: 1rem;
+}
+
+section{
+  margin-bottom: 1rem;
+}
+
+#playButton{
+  font-size: 1.2rem;
+  width: 6rem;
+}
+
+button[data-playing="yes"]:after{
+  content: "Pause";
+}
+
+button[data-playing="no"]:after{
+  content: "Play";
+}
+
+#fsButton{
+  font-size: 1.2rem;
+  width: 8rem;
+}
