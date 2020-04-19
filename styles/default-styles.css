@@ -37,20 +37,28 @@ section{
   margin-bottom: 1rem;
 }
 
-#playButton{
-  font-size: 1.2rem;
-  width: 6rem;
+button {
+  float: left;
+  border: 1px solid green;
+}
+button {
+  display: inline-block;
+  padding: 20px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  outline:inherit;
+  color: black;
+  background-color: cyan;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
 
-button[data-playing="yes"]:after{
-  content: "Pause";
-}
+button:hover {background-color: darkcyan}
 
-button[data-playing="no"]:after{
-  content: "Play";
-}
-
-#fsButton{
-  font-size: 1.2rem;
-  width: 8rem;
+button:active {
+  background-color: red;
+  box-shadow: 0 5px #666;
+  transform: translateY(3px);
 }
