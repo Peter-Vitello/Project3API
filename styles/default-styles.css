@@ -38,7 +38,7 @@ section{
 }
 
 button {
-  float: left;
+  float: center;
   border: 1px solid green;
 }
 button {
