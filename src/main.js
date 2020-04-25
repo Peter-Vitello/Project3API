@@ -62,7 +62,6 @@ function OCR(){
                     let parsedText = value["ParsedText"];
                     let errorMessage = value["ParsedTextFileName"];
                     let errorDetails = value["ErrorDetails"];
-
                     let textOverlay = value["TextOverlay"];
                     let pageText = '';
                     switch (+exitCode) 
