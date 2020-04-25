@@ -31,6 +31,7 @@ function setupUI(canvasElement){
   // A - hookup fullscreen button
     const fsButton = document.querySelector("#fsButton");
     const playButton = document.querySelector("#playButton");
+    const photoButton = document.querySelector("#addPhotoButton");
     
     
     playButton.onclick = e => {
@@ -43,6 +44,10 @@ function setupUI(canvasElement){
         console.log(concat);
    }   
   
+    photoButton.onclick = e => {
+        const string = "https://api.ocr.space/parse/imageurl?apikey=helloworld&url=http://i.imgur.com/fwxooMv.png";
+        window.open(string);
+   }   
 
 }
 
