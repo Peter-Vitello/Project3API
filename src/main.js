@@ -25,29 +25,26 @@ function setupUI(){
    }   
 }
 function Cloudmersive(){
-    let CloudmersiveOcrApiClient = require('cloudmersive-ocr-api-client');
-    let defaultClient = CloudmersiveOcrApiClient.ApiClient.instance;
+    
+    let defaultClient = cloudmersiveOcrApiClient.ApiClient.instance;
+ 
     // Configure API key authorization: Apikey
     let Apikey = defaultClient.authentications['Apikey'];
+    Apikey.apiKey = "cc38c99e-3f64-41a0-9ec4-531007206dbe";
+    let api = new cloudmersiveOcrApiClient.ImageOcrApi()
+ 
     
-    Apikey.apiKey = 'cc38c99e-3f64-41a0-9ec4-531007206dbe';
-    let apiInstance = new CloudmersiveOcrApiClient.ImageOcrApi();
+    let imageFile = document.querySelector("#urlArea").innerHTML; // {File} Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported.
     
-    let imageFile = Buffer.from(fs.readFileSync(document.querySelector("#urlArea").innerHTML).buffer); // File | Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported.
-    let opts = { 
-        'recognitionMode': "Basic",
-        'language': "ENG" 
-    };
-
+ 
     let callback = function(error, data, response) {
         if (error) {
-        console.error(error);
-        } 
-        else {
-        console.log('API called successfully. Returned data: ' + data);
+            console.error(error);
+        } else {
+            console.log('API called successfully. Returned data: ' + data);
         }
     };
-    apiInstance.imageOcrPhotoToText(imageFile, opts, callback);
+    api.imageOcrPost(Buffer.from(pageBytes.buffer), callback);
 }
 function OCR(){
     //Prepare form data
