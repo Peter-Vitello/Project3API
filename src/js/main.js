@@ -19,14 +19,13 @@ function setupUI(){
         console.log(concat);
    }   
     photoButton.onclick = e => {
-        const url = document.querySelector("#urlArea").innerHTML;
-        const string = "https://api.ocr.space/parse/imageurl?apikey=399bfffbfa88957&url=";
-        let mainURL = string.concat(url.value);
-        let obj = JSON.parse(mainURL)
+        let myOtherURL = document.querySelector("#urlArea").value;
+        let myURL = "https://api.ocr.space/parse/imageurl?apikey=399bfffbfa88957&url=" + encodeURIComponent(myOtherURL);
+        let obj = JSON.parse(myURL)
         
-        let getJSON = function(mainURL, callback) {
+        let getJSON = function(myURL, callback) {
             let xhr = new XMLHttpRequest();
-            xhr.open('GET', mainURL, true);
+            xhr.open('GET', myURL, true);
             xhr.responseType = 'json';
             xhr.onload = function() {
                 let status = xhr.status;
@@ -39,12 +38,13 @@ function setupUI(){
             xhr.send();
         };
 
-        getJSON('http://query.yahooapis.com/v1/public/yql?q=select%20%2a%20from%20yahoo.finance.quotes%20WHERE%20symbol%3D%27WRC%27&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback',
+        getJSON(myURL,
         function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
-            alert('Your query count: ' + data.query.count);
+            console.log(data.ParsedText);
+            
         }
         });
    }   
