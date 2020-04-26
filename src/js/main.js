@@ -8,7 +8,6 @@ function setupUI(){
     const playButton = document.querySelector("#playButton");
     const photoButton = document.querySelector("#addPhotoButton");
     
-    
     playButton.onclick = e => {
         const text = document.querySelector("#textArea");
         const string = "http://api.voicerss.org/?key=a53c3ed733af4616aa837107735360f0&hl=en-us&src=";
@@ -18,36 +17,54 @@ function setupUI(){
         //"window.location.href = 'https://www.w3docs.com';" value="w3docs"
         console.log(concat);
    }   
-    photoButton.onclick = e => {
+    photoButton.onclick = e => 
+    {
         let myOtherURL = document.querySelector("#urlArea").value;
-        let myURL = "https://api.ocr.space/parse/imageurl?apikey=399bfffbfa88957&url=" + encodeURIComponent(myOtherURL);
-        let obj = JSON.parse(myURL)
+        let myURL = 'https://api.ocr.space/parse/imageurl?apikey=2edc10ce1188957&url=' + encodeURIComponent(myOtherURL);
+        //let myURL = '{ "name":"John", "age":30, "city":"New York"}';
+        //let obj = getJSON
         
-        let getJSON = function(myURL, callback) {
-            let xhr = new XMLHttpRequest();
-            xhr.open('GET', myURL, true);
-            xhr.responseType = 'json';
-            xhr.onload = function() {
-                let status = xhr.status;
-                if (status === 200) {
-                    callback(null, xhr.response);
-                } else {
-                    callback(status, xhr.response);
-                }
-            };
-            xhr.send();
-        };
+        //'{"ParsedResults": [{"TextOverlay": {"Lines": [  ],"HasOverlay": false,"Message": "Text overlay is not provided as it is not requested"},"TextOrientation": "0","FileParseExitCode": 1,"ParsedText": "GAVE AWAY MY BOOK\r\nFREE ON\r\nREACHED TOP OF AMAZON\r\nBESTSELLER\r\n","ErrorMessage": "","ErrorDetails": ""}],"OCRExitCode": 1,"IsErroredOnProcessing": false,"ProcessingTimeInMilliseconds": "3010","SearchablePDFURL": "Searchable PDF not generated as it was not requested."}'
+        //let getJSON = function(myURL, callback) {
+        //    let xhr = new XMLHttpRequest();
+        //    xhr.open('GET', myURL, true);
+        //    xhr.responseType = 'json';
+        //    xhr.onload = function() {
+        //        let status = xhr.status;
+        //        if (status === 200) {
+        //            callback(null, xhr.response);
+        //        } else {
+        //            callback(status, xhr.response);
+        //        }
+        //    };
+        //    xhr.send();
+        //};
+//
+        //getJSON(myURL,
+        //function(err, data) {
+        //if (err !== null) {
+        //    alert('Something went wrong: ' + err);
+        //} else {
+        //    console.log(data.ParsedText);
+        //    
+        //}
 
-        getJSON(myURL,
-        function(err, data) {
-        if (err !== null) {
-            alert('Something went wrong: ' + err);
-        } else {
-            console.log(data.ParsedText);
-            
-        }
-        });
-   }   
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", myURL, false ); // false for synchronous request
+        xmlHttp.send( null );
+        var response = JSON.parse( xmlHttp.responseText);
+        
+        const text = document.querySelector("#textArea");
+        text.innerHTML = response.ParsedResults[0].ParsedText;
+        //var xmlHttp = new XMLHttpRequest();
+        //xmlHttp.onreadystatechange = function() { 
+        //    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        //        callback(xmlHttp.responseText);
+        //}
+        //xmlHttp.open("GET", myURL, true); // true for asynchronous 
+        //xmlHttp.send(null);
+    }
+ 
 }
 function Cloudmersive(){
     
