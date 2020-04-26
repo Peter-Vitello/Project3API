@@ -19,9 +19,34 @@ function setupUI(){
         console.log(concat);
    }   
     photoButton.onclick = e => {
-        Cloudmersive();
-        //const string = "https://api.ocr.space/parse/imageurl?apikey=helloworld&url=http://i.imgur.com/fwxooMv.png";
-        //window.open(string);
+        const url = document.querySelector("#urlArea").innerHTML;
+        const string = "https://api.ocr.space/parse/imageurl?apikey=399bfffbfa88957&url=";
+        let mainURL = string.concat(url.value);
+        let obj = JSON.parse(mainURL)
+        
+        let getJSON = function(mainURL, callback) {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', mainURL, true);
+            xhr.responseType = 'json';
+            xhr.onload = function() {
+                let status = xhr.status;
+                if (status === 200) {
+                    callback(null, xhr.response);
+                } else {
+                    callback(status, xhr.response);
+                }
+            };
+            xhr.send();
+        };
+
+        getJSON('http://query.yahooapis.com/v1/public/yql?q=select%20%2a%20from%20yahoo.finance.quotes%20WHERE%20symbol%3D%27WRC%27&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback',
+        function(err, data) {
+        if (err !== null) {
+            alert('Something went wrong: ' + err);
+        } else {
+            alert('Your query count: ' + data.query.count);
+        }
+        });
    }   
 }
 function Cloudmersive(){
@@ -37,6 +62,12 @@ function Cloudmersive(){
     let imageFile = document.querySelector("#urlArea").innerHTML; // {File} Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported.
     
  
+    let opts = { 
+        'recognitionMode': "Basic",
+        'language': "ENG", 
+        'preprocessing': "Auto"
+    };
+
     let callback = function(error, data, response) {
         if (error) {
             console.error(error);
@@ -44,7 +75,7 @@ function Cloudmersive(){
             console.log('API called successfully. Returned data: ' + data);
         }
     };
-    api.imageOcrPost(Buffer.from(pageBytes.buffer), callback);
+    api.imageOcrPost(imageFile, opts, callback);
 }
 function OCR(){
     //Prepare form data
