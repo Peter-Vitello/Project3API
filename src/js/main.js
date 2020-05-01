@@ -31,7 +31,7 @@ function setupUI(){
 	   textInBox = "Must enter URL here first."; // a default value if `nameField` is not found
     }
     
-    textInBox.onchange = e=>{ localStorage.setItem(textInBox, e.target.value); };
+    //textInBox.onchange = e=>{ localStorage.setItem(textInBox, e.target.value); };
     
     playButton.onclick = e => {
         
@@ -44,7 +44,7 @@ function setupUI(){
    }
     resetButton.onclick = e => {
         localStorage.clear();
-        document.querySelector("#urlArea").innerHTML = "";
+        document.querySelector("#urlArea").innerHTML = "Paste URL of image here.";
         document.querySelector("#textArea").innerHTML = "";
    }  
     photoButton.onclick = e => 
