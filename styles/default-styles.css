@@ -22,7 +22,8 @@ section{
 }
 
 button {
-  border: 1px solid green;
+    //float: left;
+    border: 1px solid green;
 }
 
 button {
@@ -40,7 +41,9 @@ button {
 }
 
 textarea {
-    float: bottom;
+    //position:absolute;
+    //bottom: 1;
+
 }
 
 button:hover {background-color: darkcyan}
