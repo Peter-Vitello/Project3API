@@ -40,7 +40,7 @@ function setupUI(){
     
     playButton.onclick = e => {
         const string = "http://api.voicerss.org/?key=a53c3ed733af4616aa837107735360f0&hl=en-us&src=";
-        let concat = string.concat(text.value);
+        let concat = string.concat(textInBox.value);
         //window.location.href = 'https://www.w3docs.com';
         window.open(concat);
         //"window.location.href = 'https://www.w3docs.com';" value="w3docs"
@@ -53,7 +53,7 @@ function setupUI(){
    }
     photoButton.onclick = e => 
     {
-        let myURL = 'https://api.ocr.space/parse/imageurl?apikey=2edc10ce1188957&url=' + encodeURIComponent(myOtherURL);
+        let myURL = 'https://api.ocr.space/parse/imageurl?apikey=2edc10ce1188957&url=' + encodeURIComponent(myOtherURL.value);
         //let myURL = '{ "name":"John", "age":30, "city":"New York"}';
         //let obj = getJSON
         
@@ -88,7 +88,7 @@ function setupUI(){
         var response = JSON.parse( xmlHttp.responseText);
         
         const text = document.querySelector("#textArea");
-        text.innerHTML = response.ParsedResults[0].ParsedText;
+        text.value = response.ParsedResults[0].ParsedText;
         //var xmlHttp = new XMLHttpRequest();
         //xmlHttp.onreadystatechange = function() { 
         //    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
