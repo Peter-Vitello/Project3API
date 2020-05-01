@@ -1,7 +1,9 @@
 function init(){
 	setupUI();
 }
-
+class ES6{
+    
+}
 function setupUI(){
   // A - hookup fullscreen button
     const fsButton = document.querySelector("#fsButton");
@@ -9,12 +11,7 @@ function setupUI(){
     const photoButton = document.querySelector("#addPhotoButton");
     const resetButton = document.querySelector("#resetButton");
     
-    //if (storedURL){
-	//   myOtherURL = storedURL;
-    //}else{
-	//   myOtherURL = "Enter website URL here. Must have .png or .jpg at end of URL."; // a default value if `nameField` is not found
-    //}
-    
+
     let textInBox = document.querySelector("#textArea");
     let prefix = "key";
     let textKey = prefix + "text";
