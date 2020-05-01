@@ -8,8 +8,26 @@ function setupUI(){
     const playButton = document.querySelector("#playButton");
     const photoButton = document.querySelector("#addPhotoButton");
     
+    
+    const myOtherURL = document.querySelector("#urlArea").value;
+    const storedURL = localStorage.getItem(myOtherURL);
+    const text = document.querySelector("#textArea");
+    const storedText = localStorage.getItem(storedText);
+    
+    if (storedURL){
+	   myOtherURL.value = storedURL;
+    }else{
+	   myOtherURL.value = "Enter website URL here. Must have .png or .jpg at end of URL."; // a default value if `nameField` is not found
+    }
+    
+    if (storedText){
+	   text.value = storedText;
+    }else{
+	   text.value = "Must enter URL here first."; // a default value if `nameField` is not found
+    }
+    
     playButton.onclick = e => {
-        const text = document.querySelector("#textArea");
+        
         const string = "http://api.voicerss.org/?key=a53c3ed733af4616aa837107735360f0&hl=en-us&src=";
         let concat = string.concat(text.value);
         //window.location.href = 'https://www.w3docs.com';
@@ -19,7 +37,7 @@ function setupUI(){
    }   
     photoButton.onclick = e => 
     {
-        let myOtherURL = document.querySelector("#urlArea").value;
+        
         let myURL = 'https://api.ocr.space/parse/imageurl?apikey=2edc10ce1188957&url=' + encodeURIComponent(myOtherURL);
         //let myURL = '{ "name":"John", "age":30, "city":"New York"}';
         //let obj = getJSON
