@@ -48,6 +48,9 @@ function setupUI(){
         myOtherURL.value = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end.";
         textInBox.value = "";
    }
+    goToGoogleButton.onclick = e => {
+        window.open('https://www.google.com/search?rlz=1C1GCEU_enUS894US894&sxsrf=ALeKk00u-7UQANAt-xwqAboQStV7w1TGlg:1588343534312&source=univ&tbm=isch&q=jpg+text+images&hl=en&sa=X&ved=2ahUKEwiY75Lh8JLpAhUBnKwKHT1DBKMQsAR6BAgKEAE&biw=1920&bih=969', '_blank');
+   }
     photoButton.onclick = e => 
     {
         let myURL = 'https://api.ocr.space/parse/imageurl?apikey=2edc10ce1188957&url=' + encodeURIComponent(myOtherURL.value);
