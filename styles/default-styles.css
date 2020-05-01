@@ -2,6 +2,7 @@ h1{
     font-family: 'Kanit', sans-serif;
     text-shadow: 2px 2px #ff0000;
 }
+
 body {
     background-color:  #301934;
     color: white;
@@ -21,9 +22,9 @@ section{
 }
 
 button {
-  float: top;
   border: 1px solid green;
 }
+
 button {
   display: inline-block;
   padding: 20px 30px;
@@ -36,6 +37,10 @@ button {
   border: none;
   border-radius: 15px;
   box-shadow: 0 4px #999;
+}
+
+textarea {
+    float: bottom;
 }
 
 button:hover {background-color: darkcyan}
