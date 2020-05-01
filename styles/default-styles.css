@@ -21,9 +21,6 @@ section{
   margin-bottom: 1rem;
 }
 
-.textareas{
-    float: center;
-}
 .left{
     width: 250px;
     float: left;
@@ -68,8 +65,6 @@ button {
 }
 
 textarea {
-    //position:absolute;
-    //bottom: 1;
 
 }
 
