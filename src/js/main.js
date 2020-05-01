@@ -37,7 +37,7 @@ function setupUI(){
     //}else{
 	//   textInBox.value = ""; // a default value if `nameField` is not found
     //}
-    textInBox.onchange = e=>{ localStorage.setItem(textKey, e.target.value); };
+    textInBox.oninput = e=>{ localStorage.setItem(textKey, e.target.value); };
 //================================================================================
 //================================================================================
     let myOtherURL = document.querySelector("#urlArea");
@@ -51,7 +51,7 @@ function setupUI(){
     //}else{
     //    myOtherURL.value = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end."
     //}
-    myOtherURL.onchange = e=>{ localStorage.setItem(urlKey, e.target.value); };
+    myOtherURL.oninput = e=>{ localStorage.setItem(urlKey, e.target.value); };
     
     playButton.onclick = e => {
         const string = "http://api.voicerss.org/?key=a53c3ed733af4616aa837107735360f0&hl=en-us&src=";
@@ -66,8 +66,8 @@ function setupUI(){
         localStorage.clear();
         myOtherURL.value = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end.";
         textInBox.value = "Text in this box will be played.";
-        myOtherURL.innerHTML = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end.";
-        textInBox.innerHTML = "Text in this box will be played.";
+        
+        
    }
     // opens a new tab on browser for images that the api can use 
     goToGoogleButton.onclick = e => {
