@@ -65,7 +65,9 @@ function setupUI(){
     resetButton.onclick = e => {
         localStorage.clear();
         myOtherURL.value = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end.";
-        textInBox.value = "";
+        textInBox.value = "Text in this box will be played.";
+        myOtherURL.innerHTML = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end.";
+        textInBox.innerHTML = "Text in this box will be played.";
    }
     // opens a new tab on browser for images that the api can use 
     goToGoogleButton.onclick = e => {
