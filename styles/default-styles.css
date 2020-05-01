@@ -21,7 +21,7 @@ section{
 }
 
 button {
-  float: center;
+  float: top;
   border: 1px solid green;
 }
 button {
