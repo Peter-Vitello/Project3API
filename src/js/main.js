@@ -1,8 +1,22 @@
 function init(){
 	setupUI();
 }
-class ES6{
-    
+class HelperClass{
+    //constructor(storedText,textInBox,){
+    //    this.storedText = storedText;
+    //    this.textInBox = textInBox
+    //}
+    AssignStorage(storedText,textInBox){
+        
+        this.storedText = storedText;
+        this.textInBox = textInBox
+        
+        if(storedText){
+	       textInBox.value = storedText;
+        }else{
+	       textInBox.value = ""; // a default value if `nameField` is not found
+        }
+    }
 }
 function setupUI(){
   // A - hookup fullscreen button
@@ -10,17 +24,19 @@ function setupUI(){
     const playButton = document.querySelector("#playButton");
     const photoButton = document.querySelector("#addPhotoButton");
     const resetButton = document.querySelector("#resetButton");
+    let es6 = new HelperClass();
     
 
     let textInBox = document.querySelector("#textArea");
     let prefix = "key";
     let textKey = prefix + "text";
     let storedText = localStorage.getItem(textKey);
-    if(storedText){
-	   textInBox.value = storedText;
-    }else{
-	   textInBox.value = ""; // a default value if `nameField` is not found
-    }
+    es6.AssignStorage(storedText, textInBox);
+    //if(storedText){
+	//   textInBox.value = storedText;
+    //}else{
+	//   textInBox.value = ""; // a default value if `nameField` is not found
+    //}
     textInBox.onchange = e=>{ localStorage.setItem(textKey, e.target.value); };
 //================================================================================
 //================================================================================
@@ -28,11 +44,13 @@ function setupUI(){
     let prefix2 = "key";
     let urlKey = prefix2 + "url";
     const storedURL = localStorage.getItem(urlKey);
-    if(storedURL){
-        myOtherURL.value = storedURL;
-    }else{
-        myOtherURL.value = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end."
-    }
+    
+    es6.AssignStorage(storedURL, myOtherURL);
+    //if(storedURL){
+    //    myOtherURL.value = storedURL;
+    //}else{
+    //    myOtherURL.value = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end."
+    //}
     myOtherURL.onchange = e=>{ localStorage.setItem(urlKey, e.target.value); };
     
     playButton.onclick = e => {
