@@ -9,22 +9,28 @@ function setupUI(){
     const photoButton = document.querySelector("#addPhotoButton");
     
     
-    let myOtherURL = document.querySelector("#urlArea").value;
-    const storedURL = localStorage.getItem(myOtherURL);
+    //let myOtherURL = document.querySelector("#urlArea").value;
+    //const storedURL = localStorage.getItem(myOtherURL);
+    
+    
+    //if (storedURL){
+	//   myOtherURL = storedURL;
+    //}else{
+	//   myOtherURL = "Enter website URL here. Must have .png or .jpg at end of URL."; // a default value if `nameField` is not found
+    //}
     let textInBox = document.querySelector("#textArea");
-    const storedText = localStorage.getItem(textInBox);
+    const prefix = "key";
+    let textKey = prefix + "text";
+    const storedText = localStorage.getItem(textKey);
     
-    if (storedURL){
-	   myOtherURL = storedURL;
-    }else{
-	   myOtherURL = "Enter website URL here. Must have .png or .jpg at end of URL."; // a default value if `nameField` is not found
-    }
     
-    if (storedText){
+    if(storedText){
 	   textInBox = storedText;
     }else{
 	   textInBox = "Must enter URL here first."; // a default value if `nameField` is not found
     }
+    
+    textInBox.onchange = e=>{ localStorage.setItem(textInBox, e.target.value); };
     
     playButton.onclick = e => {
         
