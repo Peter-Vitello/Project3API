@@ -7,9 +7,10 @@ function setupUI(){
     const fsButton = document.querySelector("#fsButton");
     const playButton = document.querySelector("#playButton");
     const photoButton = document.querySelector("#addPhotoButton");
+    const resetButton = document.querySelector("#resetButton");
     
     
-    //let myOtherURL = document.querySelector("#urlArea").value;
+    let myOtherURL = document.querySelector("#urlArea");
     //const storedURL = localStorage.getItem(myOtherURL);
     
     
@@ -40,7 +41,12 @@ function setupUI(){
         window.open(concat);
         //"window.location.href = 'https://www.w3docs.com';" value="w3docs"
         console.log(concat);
-   }   
+   }
+    resetButton.onclick = e => {
+        localStorage.clear();
+        document.querySelector("#urlArea").innerHTML = "";
+        document.querySelector("#textArea").innerHTML = "";
+   }  
     photoButton.onclick = e => 
     {
         
