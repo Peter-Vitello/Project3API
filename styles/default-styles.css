@@ -24,11 +24,31 @@ section{
 .textareas{
     float: center;
 }
-
-.buttons{
-        float: left;
+.left{
+    width: 250px;
+    float: left;
+    height: 250px;
+    margin-left: 30%;
+}
+.right{
+    width: 250px;
+    float: right;
+    height: 250px;
+    margin-right: 30%;
 }
 
+.leftButton{
+    width: 250px;
+    float: left;
+    height: 100px;
+    margin-left: 30%;
+}
+.rightButton{
+    width: 250px;
+    float: right;
+    height: 100px;
+    margin-right: 30%;
+}
 button {
     border: 1px solid green;
 }
@@ -59,4 +79,9 @@ button:active {
   background-color: red;
   box-shadow: 0 5px #666;
   transform: translateY(3px);
+}
+
+.bottomButtons{
+    margin-top:500px;
+    
 }

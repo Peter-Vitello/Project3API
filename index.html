@@ -15,15 +15,27 @@
 <main>
     <h1>Peter and Orion's PNG Reader</h1>
     <div class="buttons">
-        <button type="button" id="playButton">Play Text!</button><br>
-        <button type="button" id="addPhotoButton">Create Text!</button><br>
-        <button type="button" id="resetButton">Reset!</button><br>
-        <button type="button" id="goToGoogleButton">Google Images!</button><br>
-    </div>
+            <div class="leftButton">
+                <button type="button" id="playButton">Play Text!</button>
+            </div>
+            <div class="rightButton">
+                <button type="button" id="addPhotoButton">Create Text!</button>
+            </div>
+        </div>
     
-    <div clas="textareas">
-        <textarea name="message" id = "textArea" style="width:200px; height:200px;"></textarea>
-        <textarea name="URL" id = "urlArea" style="width:200px; height:200px;">Paste URL of image here.</textarea>
+    
+    <div class="centerArea">
+        <div class="left">
+            <textarea name="message" id = "textArea" style="width:250px; height:200px;"></textarea>
+        </div>
+        <div class="right">
+            <textarea name="URL" id = "urlArea" style="width:250px; height:200px;">Paste URL of image here.</textarea>
+        </div>
+        
+    </div>
+    <div class="bottomButtons">
+        <button type="button" id="resetButton">Reset!</button>
+        <button type="button" id="goToGoogleButton">Google Images!</button>
     </div>
 </main>
 <footer class="footer">
