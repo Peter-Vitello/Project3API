@@ -21,8 +21,12 @@ section{
   margin-bottom: 1rem;
 }
 
+.buttons{
+        float: left;
+}
+
 button {
-    //float: left;
+
     border: 1px solid green;
 }
 
