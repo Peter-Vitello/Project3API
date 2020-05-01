@@ -22,7 +22,7 @@ function setupUI(){
     if(storedText){
 	   textInBox.value = storedText;
     }else{
-	   textInBox.value = "Enter text here."; // a default value if `nameField` is not found
+	   textInBox.value = ""; // a default value if `nameField` is not found
     }
     textInBox.onchange = e=>{ localStorage.setItem(textKey, e.target.value); };
 //================================================================================
@@ -34,7 +34,7 @@ function setupUI(){
     if(storedURL){
         myOtherURL.value = storedURL;
     }else{
-        myOtherURL.value = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end.;"
+        myOtherURL.value = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end."
     }
     myOtherURL.onchange = e=>{ localStorage.setItem(urlKey, e.target.value); };
     
@@ -48,12 +48,11 @@ function setupUI(){
    }
     resetButton.onclick = e => {
         localStorage.clear();
-        document.querySelector("#urlArea").innerHTML = "Paste URL of image here.";
-        document.querySelector("#textArea").innerHTML = "";
-   }  
+        myOtherURL.value = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end.";
+        textInBox.value = "";
+   }
     photoButton.onclick = e => 
     {
-        
         let myURL = 'https://api.ocr.space/parse/imageurl?apikey=2edc10ce1188957&url=' + encodeURIComponent(myOtherURL);
         //let myURL = '{ "name":"John", "age":30, "city":"New York"}';
         //let obj = getJSON
