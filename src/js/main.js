@@ -8,32 +8,36 @@ function setupUI(){
     const playButton = document.querySelector("#playButton");
     const photoButton = document.querySelector("#addPhotoButton");
     
-    
-    //let myOtherURL = document.querySelector("#urlArea").value;
-    //const storedURL = localStorage.getItem(myOtherURL);
-    
-    
     //if (storedURL){
 	//   myOtherURL = storedURL;
     //}else{
 	//   myOtherURL = "Enter website URL here. Must have .png or .jpg at end of URL."; // a default value if `nameField` is not found
     //}
+    
     let textInBox = document.querySelector("#textArea");
-    const prefix = "key";
+    let prefix = "key";
     let textKey = prefix + "text";
-    const storedText = localStorage.getItem(textKey);
-    
-    
+    let storedText = localStorage.getItem(textKey);
     if(storedText){
-	   textInBox = storedText;
+	   textInBox.value = storedText;
     }else{
-	   textInBox = "Must enter URL here first."; // a default value if `nameField` is not found
+	   textInBox.value = "Enter text here."; // a default value if `nameField` is not found
     }
-    
-    textInBox.onchange = e=>{ localStorage.setItem(textInBox, e.target.value); };
+    textInBox.onchange = e=>{ localStorage.setItem(textKey, e.target.value); };
+//================================================================================
+//================================================================================
+    let myOtherURL = document.querySelector("#urlArea");
+    let prefix2 = "key";
+    let urlKey = prefix2 + "url";
+    const storedURL = localStorage.getItem(urlKey);
+    if(storedURL){
+        myOtherURL.value = storedURL;
+    }else{
+        myOtherURL.value = "Must enter URL here first. Needs to have .jpg, .png, or .jpeg at the end.;"
+    }
+    myOtherURL.onchange = e=>{ localStorage.setItem(urlKey, e.target.value); };
     
     playButton.onclick = e => {
-        
         const string = "http://api.voicerss.org/?key=a53c3ed733af4616aa837107735360f0&hl=en-us&src=";
         let concat = string.concat(text.value);
         //window.location.href = 'https://www.w3docs.com';
